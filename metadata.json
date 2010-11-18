@@ -1,0 +1,29 @@
+{
+  "recommendations": {
+  },
+  "attributes": {
+  },
+  "suggestions": {
+  },
+  "dependencies": {
+  },
+  "conflicting": {
+  },
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "platforms": {
+  },
+  "license": "All rights reserved",
+  "version": "0.0.1",
+  "providing": {
+  },
+  "maintainer": "Cramer Development, Inc.",
+  "replacing": {
+  },
+  "name": "backup",
+  "recipes": {
+  },
+  "maintainer_email": "sysadmin@cramerdev.com",
+  "description": "Installs/Configures backup",
+  "groupings": {
+  }
+}
