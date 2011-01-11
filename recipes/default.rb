@@ -11,11 +11,13 @@ execute "backup --setup" do
   action :nothing
 end
 
-gem_package "whenever" do
-  action :install
+gem_package "whenever"
+
+# activemodel requires builder (~> 2.1.2, runtime) (Gem::InstallError)
+gem_package "builder" do
+  version "~> 2.1.2"
 end
 
 gem_package "backup" do
-  action :install
   notifies :run, resources(:execute => "backup --setup")
 end
