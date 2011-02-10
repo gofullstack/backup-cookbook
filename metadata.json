@@ -1,29 +1,35 @@
 {
-  "license": "All rights reserved",
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
-  "recipes": {
-  },
-  "conflicting": {
-  },
-  "providing": {
-  },
-  "maintainer": "Cramer Development, Inc.",
-  "description": "Installs/Configures backup",
-  "replacing": {
+  "suggestions": {
   },
   "platforms": {
   },
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "conflicting": {
+  },
+  "description": "Installs/Configures backup",
+  "recipes": {
+  },
+  "providing": {
+  },
+  "dependencies": {
+    "xml": [
+
+    ],
+    "sqlite": [
+
+    ]
+  },
+  "maintainer": "Cramer Development, Inc.",
   "version": "0.0.1",
+  "attributes": {
+  },
+  "replacing": {
+  },
   "maintainer_email": "sysadmin@cramerdev.com",
   "groupings": {
   },
-  "attributes": {
-  },
+  "name": "backup",
   "recommendations": {
   },
-  "dependencies": {
-  },
-  "name": "backup",
-  "suggestions": {
-  }
+  "license": "All rights reserved"
 }
