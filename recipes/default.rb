@@ -23,3 +23,21 @@ end
 gem_package "backup" do
   notifies :run, resources(:execute => "backup --setup")
 end
+
+backups = {}
+
+search(:apps) do |app|
+  (app[:backups] || []).each do |env, app_backups|
+    backups.merge!(app_backups) if env == node[:app_environment]
+  end
+end
+
+p backups
+
+template "/opt/backup/config/backup.rb" do
+  source "backup.rb.erb"
+  mode 0644
+  owner 'root'
+  group 'root'
+  variables :backups => backups
+end
