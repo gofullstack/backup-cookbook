@@ -12,12 +12,6 @@
   "providing": {
   },
   "dependencies": {
-    "xml": [
-
-    ],
-    "sqlite": [
-
-    ]
   },
   "maintainer": "Cramer Development, Inc.",
   "version": "0.0.1",
