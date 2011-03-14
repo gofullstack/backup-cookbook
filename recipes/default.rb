@@ -9,5 +9,5 @@
 gem_package "whenever"
 
 gem_package "backup" do
-  version '3.0.2'
+  version '3.0.6'
 end
