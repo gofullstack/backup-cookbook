@@ -1,0 +1,53 @@
+##
+# Backup
+# Chef Generated Template
+#
+
+<% @models.each do |model| %>
+Backup::Model.new(:<%= model[:id] %>, '<%= model[:title] || model[:id] %>') do
+  <% (model[:databases] || {}).each_pair do |db, config| %>
+  database <%= db %> do |db|
+    db.name = '<%= config[:name] || model[:app_db][:database] %>'
+    db.username = '<%= config[:username] || model[:app_db][:username] %>'
+    db.password = '<%= config[:password] || model[:app_db][:password] %>'
+    db.host = '<%= config[:host] || model[:app_db][:host] || 'localhost' %>'
+    db.port = <%= config[:port] || model[:app_db][:port] || '3306' %>
+    db.additional_options = <%= config[:additional_options] || "['--quick', '--single-transaction']" %>
+  end
+  <% end %>
+
+  <% (model[:store_with] || {}).each_pair do |storage, config| %>
+  store_with <%= storage %> do |st|
+    <% if storage == 'CloudFiles' %>
+    #st.api_key =
+    #st.username =
+    st.container = '<%= config[:container] || 'backup' %>'
+    <% if config[:keep] %>
+    st.keep = <%= config[:keep] %>
+    <% end %>
+    <% end %>
+  end
+  <% end %>
+
+  <% if model[:archive] %>
+  archive :<%= model[:archive][:id] || model[:id] %> do |archive|
+  <% (model[:archive][:add] || []).each do |path| %>
+    archive.add '<%= path %>'
+  <% end %>
+  <% (model[:archive][:exclude] || []).each do |path| %>
+    archive.exclude '<%= path %>'
+  <% end %>
+  end
+  <% end %>
+
+  <% unless model[:compress] == false %>
+  compress_with Gzip do |compression|
+    compression.best = true
+    compression.fast = false
+  end
+  <% end %>
+
+end
+
+<% end %>
+
