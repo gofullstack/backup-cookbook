@@ -18,9 +18,9 @@ Backup::Model.new(:<%= model[:id] %>, '<%= model[:title] || model[:id] %>') do
 
   <% (model[:store_with] || {}).each_pair do |storage, config| %>
   store_with <%= storage %> do |st|
-    <% if storage == 'CloudFiles' %>
-    #st.api_key =
-    #st.username =
+    <% if storage == 'CloudFiles' && node[:backup][:rackspace_api_username] && node[:backup][:rackspace_api_key] %>
+    st.api_key = '<%= node[:backup][:rackspace_api_key] %>'
+    st.username = '<%= node[:backup][:rackspace_api_username] %>'
     st.container = '<%= config[:container] || 'backup' %>'
     <% if config[:keep] %>
     st.keep = <%= config[:keep] %>
