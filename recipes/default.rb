@@ -9,7 +9,7 @@
 gem_package 'whenever'
 
 gem_package 'backup' do
-  version '3.0.6'
+  version '3.0.9'
 end
 
 # Application-based backups
