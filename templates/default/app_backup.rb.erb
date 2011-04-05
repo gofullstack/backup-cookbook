@@ -12,7 +12,7 @@ Backup::Model.new(:<%= model[:id] %>, '<%= model[:title] || model[:id] %>') do
     db.password = '<%= config[:password] || model[:app_db][:password] %>'
     db.host = '<%= config[:host] || model[:app_db][:host] || 'localhost' %>'
     db.port = <%= config[:port] || model[:app_db][:port] || '3306' %>
-    db.additional_options = <%= config[:additional_options] || "['--quick', '--single-transaction']" %>
+    db.additional_options = <%= (config[:additional_options] || ['--quick', '--single-transaction']).to_json %>
   end
   <% end %>
 

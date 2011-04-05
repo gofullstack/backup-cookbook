@@ -87,7 +87,7 @@ search(:backups) do |bag|
       end
 
       execute "write crontab for #{bag[:id]}" do
-        command "whenever --write-crontab #{bag[:id]} --set path=$PATH --load-file #{backup_path}/schedule.rb --user #{user}"
+        command "#{node[:languages][:ruby][:bin_dir]}/whenever --write-crontab #{bag[:id]} --set path=$PATH --load-file #{backup_path}/schedule.rb --user #{user}"
       end
     end
   end
