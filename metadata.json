@@ -1,16 +1,13 @@
 {
-  "providing": {
-  },
   "platforms": {
   },
-  "maintainer": "Cramer Development, Inc.",
-  "replacing": {
+  "suggestions": {
   },
-  "maintainer_email": "sysadmin@cramerdev.com",
+  "conflicting": {
+  },
   "description": "Installs/Configures backup",
-  "groupings": {
-  },
-  "recommendations": {
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "providing": {
   },
   "dependencies": {
   },
@@ -19,11 +16,14 @@
   },
   "attributes": {
   },
-  "suggestions": {
+  "maintainer": "Cramer Development, Inc.",
+  "replacing": {
   },
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "maintainer_email": "sysadmin@cramerdev.com",
   "name": "backup",
-  "conflicting": {
+  "groupings": {
+  },
+  "recommendations": {
   },
   "license": "All rights reserved"
 }

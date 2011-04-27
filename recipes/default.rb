@@ -7,6 +7,9 @@
 # All rights reserved - Do Not Redistribute
 
 gem_package 'whenever'
+gem_package 'fog' do
+  version '0.7.2'
+end
 
 gem_package 'backup' do
   version '3.0.14'
