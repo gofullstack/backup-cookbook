@@ -2,17 +2,32 @@
 # Cookbook Name:: backup
 # Recipe:: default
 #
-# Copyright 2010, Cramer Development, Inc.
+# Copyright 2011, Cramer Development, Inc.
 #
-# All rights reserved - Do Not Redistribute
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 gem_package 'whenever'
-gem_package 'fog' do
-  version '0.7.2'
-end
+gem_package 'fog'
 
 gem_package 'backup' do
-  version '3.0.14'
+  version node['backup']['version']
+end
+
+if node['languages']['ruby']['version'][0..2] == '1.8'
+  gem_package 's3sync'
+else
+  gem_package 'aproxacs-s3sync'
 end
 
 # Application-based backups
@@ -55,8 +70,8 @@ search(:apps) do |app|
 end
 
 # Backups from "backups" data bag
-backup_path = (node[:backup] || {})[:path] || '/var/backups'
-user = (node[:backup] || {})[:user] || 'root'
+backup_path = node['backup']['path'] || '/var/backups'
+user = node['backup']['user'] || 'root'
 
 search(:backups) do |bag|
   if (bag[:nodes] || []).include?(node.name)

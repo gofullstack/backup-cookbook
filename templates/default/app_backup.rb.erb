@@ -17,15 +17,31 @@ Backup::Model.new(:<%= model[:id] %>, '<%= model[:title] || model[:id] %>') do
   <% end %>
 
   <% (model[:store_with] || {}).each_pair do |storage, config| %>
-  store_with <%= storage %> do |st|
+  store_with <%= storage %> do |s|
     <% if storage == 'CloudFiles' && node[:backup][:rackspace_api_username] && node[:backup][:rackspace_api_key] %>
-    st.api_key = '<%= node[:backup][:rackspace_api_key] %>'
-    st.username = '<%= node[:backup][:rackspace_api_username] %>'
-    st.container = '<%= config[:container] || 'backup' %>'
+    s.api_key = '<%= node[:backup][:rackspace_api_key] %>'
+    s.username = '<%= node[:backup][:rackspace_api_username] %>'
+    s.container = '<%= config[:container] || 'backup' %>'
     <% if config[:keep] %>
-    st.keep = <%= config[:keep] %>
+    s.keep = <%= config[:keep] %>
     <% end %>
     <% end %>
+  end
+  <% end %>
+
+  <% (model[:sync_with] || {}).each_pair do |syncer, config| %>
+  sync_with <%= syncer %> do |s|
+    <% if syncer == 'S3' && node['backup']['aws_access_key_id'] && node['backup']['aws_secret_access_key'] %>
+    s.access_key_id = '<%= node['backup']['aws_access_key_id'] %>'
+    s.secret_access_key = '<%= node['backup']['aws_secret_access_key'] %>'
+    s.bucket = '<%= config['bucket'] || 'backup' %>'
+    s.mirror = <%= !!config['mirror'] %>
+    <% end %>
+    s.directories do |directory|
+    <% (config['directories'] || []).each do |dir| %>
+      directory.add '<%= dir %>'
+    <% end %>
+    end
   end
   <% end %>
 
