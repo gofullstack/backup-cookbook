@@ -18,7 +18,14 @@
 #
 
 gem_package 'whenever'
-gem_package 'fog'
+
+gem_package 'fog' do
+  version '>= 0.11.0'
+end
+
+gem_package 'popen4' do
+  version '~> 0.1.2'
+end
 
 gem_package 'backup' do
   version node['backup']['version']
