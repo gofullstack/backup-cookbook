@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe 'xml'
+
 gem_package 'whenever'
 
 gem_package 'fog' do
