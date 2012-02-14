@@ -19,4 +19,4 @@
 
 default['backup']['path']    = '/var/backups'
 default['backup']['user']    = 'root'
-default['backup']['version'] = '3.0.18'
+default['backup']['version'] = '3.0.23'

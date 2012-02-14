@@ -19,14 +19,8 @@
 
 include_recipe 'xml'
 
-gem_package 'whenever'
-
-gem_package 'fog' do
-  version '>= 0.11.0'
-end
-
-gem_package 'popen4' do
-  version '~> 0.1.2'
+%w{ whenever fog parallel }.each do |gem|
+  gem_package gem
 end
 
 gem_package 'backup' do
