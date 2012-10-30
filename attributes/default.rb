@@ -18,6 +18,8 @@
 #
 
 default['backup']['path']    = '/var/backups'
-default['backup']['user']    = 'root'
-default['backup']['group']   = 'root'
+default['backup']['config_path'] = '/etc/backup'
+default['backup']['storage_path'] = '/mnt/backup'
+default['backup']['user'] = 'root'
+default['backup']['group'] = 'root'
 default['backup']['version'] = '3.0.25'
