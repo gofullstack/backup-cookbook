@@ -17,6 +17,9 @@
 # limitations under the License.
 #
 
-default['backup']['path']    = '/var/backups'
-default['backup']['user']    = 'root'
-default['backup']['version'] = '3.0.23'
+default['backup']['path']        = '/var/backups'
+default['backup']['config_path'] = '/etc/backup'
+default['backup']['model_path']  = "#{node['backup']['config_path']}/models/"
+default['backup']['user']        = 'root'
+default['backup']['group']       = 'root'
+default['backup']['version']     = '3.0.25'

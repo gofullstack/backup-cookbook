@@ -33,6 +33,21 @@ else
   gem_package 'aproxacs-s3sync'
 end
 
+%w[ config_path model_path ].each do |dir|
+  directory node['backup'][dir] do
+    owner node['backup']['user']
+    group node['backup']['group']
+    mode '0700'
+  end
+end
+
+template "#{node['backup']['config_path']}/config.rb" do
+  source 'config.rb.erb'
+  owner node['backup']['user']
+  group node['backup']['group']
+  mode '0600'
+end
+
 # Backups from "backups" data bag
 backup_path = node['backup']['path'] || '/var/backups'
 user = node['backup']['user'] || 'root'
