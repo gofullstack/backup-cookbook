@@ -17,20 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'xml'
-
-%w{ whenever fog parallel }.each do |gem|
-  gem_package gem
-end
-
 gem_package 'backup' do
   version node['backup']['version']
-end
-
-if node['languages']['ruby']['version'][0..2] == '1.8'
-  gem_package 's3sync'
-else
-  gem_package 'aproxacs-s3sync'
 end
 
 %w[ config_path model_path ].each do |dir|
