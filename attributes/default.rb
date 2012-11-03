@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: backup
-# Default:: default
+# Attributes:: default
 #
 # Copyright 2011, Cramer Development, Inc.
 #
@@ -17,9 +17,11 @@
 # limitations under the License.
 #
 
-default['backup']['path']        = '/var/backups'
-default['backup']['config_path'] = '/etc/backup'
-default['backup']['model_path']  = "#{node['backup']['config_path']}/models/"
-default['backup']['user']        = 'root'
-default['backup']['group']       = 'root'
-default['backup']['version']     = '3.0.25'
+default['backup']['path']         = '/var/backups' # LEGACY
+default['backup']['config_path']  = '/etc/backup'
+default['backup']['model_path']   = "#{node['backup']['config_path']}/models/"
+default['backup']['dependencies'] = []
+default['backup']['user']         = 'root'
+default['backup']['group']        = 'root'
+default['backup']['version']      = '3.0.25'
+default['backup']['server']       = {}

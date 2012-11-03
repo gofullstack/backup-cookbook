@@ -17,21 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe 'xml'
+gem_package 'backup' { version node['backup']['version'] }
 
-%w{ whenever fog parallel }.each do |gem|
-  gem_package gem
-end
-
-gem_package 'backup' do
-  version node['backup']['version']
-end
-
-if node['languages']['ruby']['version'][0..2] == '1.8'
-  gem_package 's3sync'
-else
-  gem_package 'aproxacs-s3sync'
-end
+node['backup']['dependencies'].each {|gem| gem_package gem }
 
 %w[ config_path model_path ].each do |dir|
   directory node['backup'][dir] do
@@ -46,6 +34,18 @@ template "#{node['backup']['config_path']}/config.rb" do
   owner node['backup']['user']
   group node['backup']['group']
   mode '0600'
+end
+
+# LEGACY
+include_recipe 'xml'
+%w{ whenever fog parallel }.each do |gem|
+  gem_package gem
+end
+
+if node['languages']['ruby']['version'][0..2] == '1.8'
+  gem_package 's3sync'
+else
+  gem_package 'aproxacs-s3sync'
 end
 
 # Backups from "backups" data bag
