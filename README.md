@@ -83,12 +83,13 @@ This fits a specific use case and may or may not be useful. It is intended to be
 
 ### Actions
 
-Accepts the same actions as the [`mount` resource](http://wiki.opscode.com/display/chef/Resources#Resources-Mount). Default is `[:mount, :enable]`.
+* `:enable` - Enables and mounts the device
+* `:disable` - Disables and unmounts the device
 
 ### Attribute Parameters
 
-* Name attribute: The directory where the mount will be placed.
-* `remote_directory`: The directory being accessed on the remote server
+* Name attribute: The path where the mount will be placed.
+* `remote_path`: The path being accessed on the remote server
 
 ### Example
 
@@ -100,7 +101,7 @@ Given the following attributes:
 And this in the recipe:
 
     backup_mount '/mnt/backup/myapp' do
-      remote_directory '/backups/myapp' # Will be prefixed with with the `node['backup']['server']['root_path']` if it is set.
+      remote_path '/backups/myapp' # Will be prefixed with with the `node['backup']['server']['root_path']` if it is set.
     end
 
 will create an NFS mount at /mnt/backup/myapp with the device 192.168.0.2:/volume1/backups/myapp.
