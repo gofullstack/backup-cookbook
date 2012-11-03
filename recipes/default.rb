@@ -17,9 +17,13 @@
 # limitations under the License.
 #
 
-gem_package 'backup' { version node['backup']['version'] }
+gem_package 'backup' do
+  version node['backup']['version']
+end
 
-node['backup']['dependencies'].each {|gem| gem_package gem }
+node['backup']['dependencies'].each do |gem|
+  gem_package gem
+end
 
 %w[ config_path model_path ].each do |dir|
   directory node['backup'][dir] do

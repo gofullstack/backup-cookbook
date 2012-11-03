@@ -19,7 +19,7 @@
 
 default['backup']['path']         = '/var/backups' # LEGACY
 default['backup']['config_path']  = '/etc/backup'
-default['backup']['model_path']   = "#{node['backup']['config_path']}/models/"
+default['backup']['model_path']   = "#{node['backup']['config_path']}/models"
 default['backup']['dependencies'] = []
 default['backup']['user']         = 'root'
 default['backup']['group']        = 'root'

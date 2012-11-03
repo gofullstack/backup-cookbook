@@ -42,7 +42,7 @@ Creates a backup model with an optional `cron` schedule.
 * The name attribute - A symbol used as the trigger name.
 * `description` - A description for the backup. Default is the same as the name.
 * `definition` - A string (best formed as a heredoc) defining the backup. Will be interpoleted and turned into a model file. Required.
-* `schedule` - A block that will be passed directly to a [`cron` resource](http://wiki.opscode.com/display/chef/Resources#Resources-Cron).
+* `schedule` - A hash of times (minute, hour, day, month, weekday) that will be passed to a [`cron` resource](http://wiki.opscode.com/display/chef/Resources#Resources-Cron).
 
 ### Example
 
@@ -69,10 +69,10 @@ This will create a model scheduled to back up a database daily:
         end
       DEF
 
-      schedule do
-        minute 0
-        hour 0
-      end
+      schedule({
+        :minute => 0,
+        :hour   => 0
+      })
     end
 
 ## backup_mount
