@@ -12,7 +12,7 @@ See `attributes/default.rb` for default vaules.
 
 * `node['backup']['config_path']` - Where backup configuration data will be stored. Defaults is `/etc/backup`
 * `node['backup']['model_path']` - Where backup models (definitions) are stored. Default is `node['backup']['config_path']/models`
-* `node['backup']['dependencies']` - An array of additional dependencies needed for backups. The backup gem will inform you about these when the backup runs.
+* `node['backup']['dependencies']` - An array of arrays of additional dependencies and optional versions needed for backups. The backup gem will inform you about these when the backup runs. (examples: `['fog']`, `[['fog', '1.4.0'], ['s3']]`)
 * `node['backup']['user']` - User that performs backups. Default is root
 * `node['backup']['group']` - Group that performs backups. Default is root
 * `node['backup']['version']` - Version of the Backup gem to be installed. The latest version of this cookbook should have the latest stable version of the gem

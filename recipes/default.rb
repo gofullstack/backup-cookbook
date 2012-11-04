@@ -21,8 +21,10 @@ gem_package 'backup' do
   version node['backup']['version']
 end
 
-node['backup']['dependencies'].each do |gem|
-  gem_package gem
+node['backup']['dependencies'].each do |gem, ver|
+  gem_package gem do
+    version ver if ver && ver.length > 0
+  end
 end
 
 %w[ config_path model_path ].each do |dir|
