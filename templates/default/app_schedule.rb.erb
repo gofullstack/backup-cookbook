@@ -1,9 +1,0 @@
-env :PATH, @path || ENV['PATH']
-
-<% @models.each do |model| %>
-<% if model[:schedule].is_a?(String) %>
-<%= model[:schedule] %> do
-  command "backup perform --trigger=<%= model[:id] %> <%= @args %>"
-end
-<% end %>
-<% end %>
