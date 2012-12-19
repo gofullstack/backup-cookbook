@@ -8,6 +8,7 @@ action :enable do
       owner node['backup']['user']
       group node['backup']['group']
       mode '0700'
+      recursive true
     end
 
     mount new_resource.path do
