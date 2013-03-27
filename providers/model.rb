@@ -2,7 +2,7 @@ action :create do
   file_contents = model_content
 
   cron cron_name do
-    command "backup perform --trigger #{new_resource.name} --config-file #{node['backup']['config_path']}/config.rb --log-path=/var/log"
+    command "backup perform --trigger #{new_resource.name} --config-file #{node['backup']['config_path']}/config.rb --log-path=#{node['backup']['log_path']}"
     user node['backup']['user']
     minute new_resource.schedule[:minute] || '*'
     hour new_resource.schedule[:hour] || '*'
