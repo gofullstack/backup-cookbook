@@ -4,7 +4,7 @@ action :create do
 
   cron cron_name do
     command cron_options[:command] ||
-      "backup perform --trigger #{new_resource.name} --config-file #{node['backup']['config_path']}/config.rb --log-path=/var/log"
+      "backup perform --trigger #{new_resource.name} --config-file #{node['backup']['config_path']}/config.rb --log-path=/var/log > /dev/null"
 
     mailto cron_options[:mailto] if cron_options.key?(:mailto)
     path cron_options[:path] if cron_options.key?(:path)
