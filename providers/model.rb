@@ -1,9 +1,16 @@
 action :create do
   file_contents = model_content
+  cron_options = new_resource.cron_options || {}
 
   cron cron_name do
-    command "backup perform --trigger #{new_resource.name} --config-file #{node['backup']['config_path']}/config.rb --log-path=#{node['backup']['log_path']}"
-    user node['backup']['user']
+    command cron_options[:command] ||
+      "backup perform --trigger #{new_resource.name} --config-file #{node['backup']['config_path']}/config.rb --log-path=/var/log"
+
+    mailto cron_options[:mailto] if cron_options.key?(:mailto)
+    path cron_options[:path] if cron_options.key?(:path)
+    shell cron_options[:shell] if cron_options.key?(:shell)
+    user cron_options[:user] || node['backup']['user']
+
     minute new_resource.schedule[:minute] || '*'
     hour new_resource.schedule[:hour] || '*'
     day new_resource.schedule[:day] || '*'
