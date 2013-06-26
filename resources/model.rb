@@ -1,4 +1,5 @@
 actions :create, :delete
+default_action :create
 
 attribute :name, :kind_of => Symbol, :name_attribute => true, :required => true
 attribute :description, :kind_of => String
