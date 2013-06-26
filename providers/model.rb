@@ -1,3 +1,8 @@
+# Support whyrun
+def whyrun_supported?
+  true
+end
+
 action :create do
   cron_options = new_resource.cron_options || {}
 
@@ -18,14 +23,12 @@ action :create do
   end
 
   template "Model file for #{new_resource.name}" do
-    path ::File.join(node['backup']['model_path'], "#{new_resource.name}.rb")
+    path model_path
     source model.erb
     owner node['backup']['user']
     group node['backup']['group']
     mode '0600'
   end
-
-  new_resource.updated_by_last_action(true)
 end
 
 action :delete do
@@ -33,7 +36,8 @@ action :delete do
     action :delete
   end
 
-  file model_file_name do
+  template "Model file for #{new_resource.name}" do
+    path model_path
     action :delete
   end
 end
@@ -42,4 +46,8 @@ private
 
 def cron_name
   "#{new_resource.name}_backup"
+end
+
+def model_path
+  ::File.join(node['backup']['model_path'], "#{new_resource.name}.rb")
 end
