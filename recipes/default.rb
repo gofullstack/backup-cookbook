@@ -35,7 +35,8 @@ end
   end
 end
 
-template "#{node['backup']['config_path']}/config.rb" do
+template "Backup config file" do
+  path ::File.join( node['backup']['config_path'], "config.rb")
   source 'config.rb.erb'
   owner node['backup']['user']
   group node['backup']['group']
