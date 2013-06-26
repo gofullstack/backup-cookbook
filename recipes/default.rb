@@ -18,7 +18,8 @@
 #
 
 gem_package 'backup' do
-  version node['backup']['version']
+  version node['backup']['version'] if node['backup']['version']
+  action :upgrade if node['backup']['upgrade?']
 end
 
 node['backup']['dependencies'].each do |gem, ver|
