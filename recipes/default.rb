@@ -23,7 +23,7 @@ end
 
 node['backup']['dependencies'].each do |gem, ver|
   gem_package gem do
-    version ver if ver && ver.length > 0
+    version ver if ver
   end
 end
 
