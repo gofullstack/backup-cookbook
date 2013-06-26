@@ -28,6 +28,11 @@ action :create do
     owner node['backup']['user']
     group node['backup']['group']
     mode '0600'
+    variables(
+      :name => @new_resource.name,
+      :description => @new_resource.description || @new_resource.name,
+      :definition => @new_resource.definition
+    )
   end
 end
 
