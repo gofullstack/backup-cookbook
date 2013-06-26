@@ -28,6 +28,7 @@ action :create do
     owner node['backup']['user']
     group node['backup']['group']
     mode '0600'
+    cookbook @new_resource.cookbook
     variables(
       :name => @new_resource.name,
       :description => @new_resource.description || @new_resource.name,
@@ -41,7 +42,7 @@ action :delete do
     action :delete
   end
 
-  template "Model file for #{@new_resource.name}" do
+  file "Model file for #{@new_resource.name}" do
     path model_path
     action :delete
   end

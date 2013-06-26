@@ -5,6 +5,7 @@ attribute :description, :kind_of => String
 attribute :definition, :kind_of => String, :required => true
 attribute :cron_options, :kind_of => Hash
 attribute :schedule, :kind_of => Hash
+attribute :cookbook, :kind_of => String, :default => "backup"
 
 # Set default
 def initialize(*args)
