@@ -1,9 +1,12 @@
+# Support whyrun
+def whyrun_supported?
+  true
+end
+
 action :enable do
   if node['backup']['server']['address'].nil?
     Chef::Log.warn("The backup.server.address attribute is not defined. Not taking any action")
   else
-    dev = device_name
-
     directory new_resource.path do
       owner node['backup']['user']
       group node['backup']['group']
@@ -13,19 +16,16 @@ action :enable do
 
     mount new_resource.path do
       fstype 'nfs'
-      device dev
+      device device_name
       action [:mount, :enable]
     end
   end
-
-  new_resource.updated_by_last_action(true)
 end
 
 action :disable do
-  dev = device_name
 
   mount new_resource.path do
-    device dev
+    device device_name
     action [:umount, :disable]
   end
 

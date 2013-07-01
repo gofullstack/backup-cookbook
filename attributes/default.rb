@@ -25,4 +25,5 @@ default['backup']['dependencies'] = []
 default['backup']['user']         = 'root'
 default['backup']['group']        = 'root'
 default['backup']['version']      = '3.0.25'
+default['backup']['upgrade?']     = false
 default['backup']['server']       = {}
