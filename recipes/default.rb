@@ -18,12 +18,13 @@
 #
 
 gem_package 'backup' do
-  version node['backup']['version']
+  version node['backup']['version'] if node['backup']['version']
+  action :upgrade if node['backup']['upgrade?']
 end
 
 node['backup']['dependencies'].each do |gem, ver|
   gem_package gem do
-    version ver if ver && ver.length > 0
+    version ver if ver
   end
 end
 
@@ -35,7 +36,8 @@ end
   end
 end
 
-template "#{node['backup']['config_path']}/config.rb" do
+template "Backup config file" do
+  path ::File.join( node['backup']['config_path'], "config.rb")
   source 'config.rb.erb'
   owner node['backup']['user']
   group node['backup']['group']
