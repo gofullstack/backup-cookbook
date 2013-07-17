@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cramerdev/backup-cookbook.png)](https://travis-ci.org/cramerdev/backup-cookbook)
+
 # Description
 
 Uses the [Backup Ruby Gem](https://github.com/meskyanichi/backup) to perform backups.
