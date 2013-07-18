@@ -6,7 +6,7 @@ end
 action :create do
   cron_options = new_resource.cron_options || {}
 
-  cron cron_name do
+  cron_d cron_name do
     command cron_options[:command] ||
       "backup perform --trigger #{new_resource.name} --config-file #{node['backup']['config_path']}/config.rb --log-path=#{node['backup']['log_path']} > /dev/null"
 
@@ -38,7 +38,7 @@ action :create do
 end
 
 action :delete do
-  cron cron_name do
+  cron_d cron_name do
     action :delete
   end
 
