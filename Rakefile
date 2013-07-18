@@ -4,7 +4,9 @@ require 'foodcritic'
 
 task :default => [:foodcritic]
 
-FoodCritic::Rake::LintTask.new
+FoodCritic::Rake::LintTask.new do |t|
+  t.options = {:fail_tags => ['any',"~FC017"]}
+end
 
 desc "Runs knife cookbook test"
 task :knife do
