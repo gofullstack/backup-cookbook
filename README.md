@@ -55,7 +55,7 @@ This will create a model scheduled to back up a database daily:
     backup_model :my_db do
       description "Back up my database"
 
-      definition=<<-DEF
+      definition <<-DEF
         split_into_chunks_of 4000
 
         database MySQL do |db|
