@@ -1,6 +1,8 @@
 # Backup Cookbook Changelog
 
-## v0.3.0
+* Fix typo in README
+
+## v0.3.0: 2013-07-31
 
 * Add changelog
 * Travis CI support
