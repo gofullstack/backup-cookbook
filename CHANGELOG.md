@@ -1,6 +1,9 @@
 # Backup Cookbook Changelog
 
+## v0.3.1: 2013-09-25
+
 * Fix typo in README
+* Fix some bugs in templating
 
 ## v0.3.0: 2013-07-31
 
