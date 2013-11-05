@@ -43,7 +43,7 @@ action :delete do
   end
 
   file "Model file for #{new_resource.name}" do
-    path model_path
+    path ::File.join(node['backup']['model_path'], "#{new_resource.name}.rb")
     action :delete
   end
 end
