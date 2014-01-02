@@ -1,5 +1,10 @@
 # Backup Cookbook Changelog
 
+## v0.3.2: 2014-01-02
+
+* Allow for model names with dashes
+* Fix path in model provider's delete action
+
 ## v0.3.1: 2013-09-25
 
 * Fix typo in README
