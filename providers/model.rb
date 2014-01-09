@@ -20,7 +20,7 @@ action :create do
     day new_resource.schedule[:day] || '*'
     month new_resource.schedule[:month] || '*'
     weekday new_resource.schedule[:weekday] || '*'
-  end
+  end unless new_resource.schedule.nil?
 
   template "Model file for #{new_resource.name}" do
     path ::File.join(node['backup']['model_path'], "#{new_resource.name}.rb")
