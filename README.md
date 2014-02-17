@@ -46,7 +46,7 @@ Creates a backup model with an optional `cron` schedule.
 * `description` - A description for the backup. Default is the same as the name.
 * `definition` - A string (best formed as a heredoc) defining the backup. Will be interpoleted and turned into a model file. Required.
 * `schedule` - A hash of times (minute, hour, day, month, weekday) that will be passed to a [`cron` resource](http://docs.opscode.com/chef/resources.html#cron).
-* `cron_options` - A hash of other options to be passed to the `cron` resource. Includes `:command` (will be set to the generated backup command by default), `:mailto`, `:path`, `:shell`, `:user`.
+* `cron_options` - A hash of other options to be passed to the `cron` resource. Includes `:command` (will be set to the generated backup command by default), `:mailto`, `:path`, `:shell`, `:user`. Set `output_log` option to redirect output of the generated backup command  to the log file (by default this output will be ignored).
 
 ### Example
 
