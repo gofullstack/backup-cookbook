@@ -1,5 +1,11 @@
 # Backup Cookbook Changelog
 
+## v0.4.0: 2014-02-17
+
+* Make Travis builds work
+* Do not create cron job in model provider if no schedule is given
+* Redirect output of the generated command to the log file if it is specified in `cron\_options`
+
 ## v0.3.2: 2014-01-02
 
 * Allow for model names with dashes
