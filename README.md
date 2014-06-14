@@ -6,7 +6,11 @@ Uses the [Backup Ruby Gem](https://github.com/meskyanichi/backup) to perform bac
 
 # Requirements
 
-Tested on Ubuntu Linux with Ruby 1.9, but should run on any Unix with Ruby.
+Tested on Ubuntu Linux with Ruby 1.9.3, but should run on any Unix with Ruby.
+
+Ruby 1.8.7 and 1.9.2 are no longer supported.  If you require the support of
+older Ruby versions, you should use v1.0.0 of this cookbook.  If you want to use
+v4 of the gem, you need to use this version.
 
 # Attributes
 
