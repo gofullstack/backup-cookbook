@@ -1,5 +1,9 @@
 # Backup Cookbook Changelog
 
+## v1.0.0: 2014-06-28
+
+* Upgrade to v4.0.1 of backup gem.
+
 ## v0.4.0: 2014-02-17
 
 * Make Travis builds work

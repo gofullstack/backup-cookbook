@@ -24,6 +24,6 @@ default['backup']['model_path']   = "#{node['backup']['config_path']}/models"
 default['backup']['dependencies'] = []
 default['backup']['user']         = 'root'
 default['backup']['group']        = 'root'
-default['backup']['version']      = '3.0.25'
+default['backup']['version']      = '4.0.1'
 default['backup']['upgrade?']     = false
 default['backup']['server']       = {}
