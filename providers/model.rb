@@ -33,15 +33,18 @@ action :create do
   template "Model file for #{new_resource.name}" do
     path ::File.join(node['backup']['model_path'], "#{new_resource.name}.rb")
     source 'model.erb'
+    cookbook new_resource.cookbook
     owner node['backup']['user']
     group node['backup']['group']
     mode '0600'
-    cookbook new_resource.cookbook
     variables(
       :name => new_resource.name,
       :description => new_resource.description || new_resource.name,
       :definition => new_resource.definition
     )
+    if new_resource.template.is_a? Hash
+      new_resource.template.each{ |k, v| send k, v }
+    end
   end
 end
 
