@@ -1,8 +1,12 @@
 # Backup Cookbook Changelog
 
+## v1.1.0: 2014-08-11
+
+* Allow installation of backup gem from a git repository
+
 ## v1.0.0: 2014-06-28
 
-* Upgrade to v4.0.1 of backup gem.
+* Upgrade to v4.0.1 of backup gem
 
 ## v0.4.0: 2014-02-17
 
