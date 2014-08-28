@@ -1,5 +1,9 @@
 # Backup Cookbook Changelog
 
+## v1.1.1: 2014-08-28
+
+* Add support for cron home option
+
 ## v1.1.0: 2014-08-11
 
 * Allow installation of backup gem from a git repository
