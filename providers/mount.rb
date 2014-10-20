@@ -34,8 +34,6 @@ action :disable do
   end
 end
 
-private
-
 def device_name
   "#{node['backup']['server']['address']}:/#{node['backup']['server']['root_path']}/#{new_resource.remote_path}"
 end
