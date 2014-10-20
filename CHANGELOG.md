@@ -1,5 +1,9 @@
 # Backup Cookbook Changelog
 
+## v1.1.2: 2014-10-20
+
+* Fix for device_name in mount provider
+
 ## v1.1.1: 2014-08-28
 
 * Add support for cron home option
