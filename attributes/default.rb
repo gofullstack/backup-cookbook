@@ -20,6 +20,7 @@
 default['backup']['path']         = '/var/backups' # LEGACY
 default['backup']['config_path']  = '/etc/backup'
 default['backup']['log_path']     = '/var/log'
+default['backup']['addl_flags']   = ''
 default['backup']['model_path']   = "#{node['backup']['config_path']}/models"
 
 default['backup']['user']         = 'root'

@@ -15,7 +15,7 @@ action :create do
     command cron_options[:command] ||
       "backup perform --trigger #{new_resource.name} \
       --config-file #{node['backup']['config_path']}/config.rb \
-      --log-path=#{node['backup']['log_path']} \
+      --log-path=#{node['backup']['log_path']} #{node['backup']['addl_flags']} \
       #{cron_output_redirect}".squeeze(' ')
 
     mailto cron_options[:mailto] if cron_options.key?(:mailto)
