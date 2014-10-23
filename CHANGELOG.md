@@ -1,5 +1,9 @@
 # Backup Cookbook Changelog
 
+## v1.2.0: 2014-10-23
+
+* Add addl_flags attribute
+
 ## v1.1.2: 2014-10-20
 
 * Fix for device_name in mount provider
