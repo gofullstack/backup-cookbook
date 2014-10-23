@@ -18,6 +18,7 @@ See `attributes/default.rb` for default vaules.
 
 * `node['backup']['config_path']` - Where backup configuration data will be stored. Defaults is `/etc/backup`
 * `node['backup']['log_path']` - Where backup logs will be stored. Defaults is `/var/log`
+* `node['backup']['addl_flags']` - Additional flags to pass on to the backup executable, such as `--tmp-path`
 * `node['backup']['model_path']` - Where backup models (definitions) are stored. Default is `node['backup']['config_path']/models`
 * `node['backup']['dependencies']` - An array of arrays of additional dependencies and optional versions needed for backups. The backup gem will inform you about these when the backup runs. (examples: `['fog']`, `[['fog', '1.4.0'], ['s3']]`)
 * `node['backup']['user']` - User that performs backups. Default is root
