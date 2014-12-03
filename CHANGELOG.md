@@ -1,5 +1,9 @@
 # Backup Cookbook Changelog
 
+## v1.3.0: 2014-12-02
+
+* Add support for passing mount options to the Mount resource.
+
 ## v1.2.0: 2014-10-23
 
 * Add addl_flags attribute
