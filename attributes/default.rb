@@ -28,7 +28,7 @@ default['backup']['user']         = 'root'
 default['backup']['group']        = 'root'
 
 default['backup']['dependencies'] = []
-default['backup']['version'] = '4.0.2'
+default['backup']['version'] = '4.1.10'
 default['backup']['version_from_git?'] = false
 default['backup']['git_repo'] = nil
 default['backup']['upgrade?'] = false
