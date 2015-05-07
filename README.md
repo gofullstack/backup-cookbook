@@ -48,7 +48,7 @@ Creates a backup model with an optional `cron` schedule.
 
 ### Attribute Parameters
 
-* The name attribute - A symbol used as the trigger name.
+* The name attribute - A string or symbol used as the trigger name.
 * `description` - A description for the backup. Default is the same as the name.
 * `definition` - A string (best formed as a heredoc) defining the backup. Will be interpoleted and turned into a model file. Required.
 * `schedule` - A hash of times (minute, hour, day, month, weekday) that will be passed to a [`cron` resource](http://docs.opscode.com/chef/resources.html#cron).
