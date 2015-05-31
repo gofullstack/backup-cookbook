@@ -34,3 +34,6 @@ default['backup']['git_repo'] = nil
 default['backup']['upgrade?'] = false
 
 default['backup']['server']       = {}
+
+default['backup']['models']       = {}
+
