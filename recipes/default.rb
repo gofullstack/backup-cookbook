@@ -45,6 +45,14 @@ end
   end
 end
 
+node['backup']['models'].each do |name, options|
+  backup_model name do
+    options.each do |attr, value|
+      send attr, value
+    end
+  end
+end
+
 template "Backup config file" do
   path ::File.join( node['backup']['config_path'], "config.rb")
   source 'config.rb.erb'
