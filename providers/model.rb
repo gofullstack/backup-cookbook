@@ -6,7 +6,7 @@ end
 action :create do
   cron_options = new_resource.cron_options || {}
   cron_output_redirect = if cron_options.key?(:output_log)
-                           "2>&1 >> #{cron_options[:output_log]}"
+                           ">> #{cron_options[:output_log]} 2>&1"
                          else
                            "> /dev/null"
                          end
