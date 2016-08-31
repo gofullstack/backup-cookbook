@@ -22,7 +22,7 @@ default['backup']['config_path']  = '/etc/backup'
 default['backup']['log_path']     = '/var/log'
 default['backup']['addl_flags']   = ''
 default['backup']['model_path']   = "#{node['backup']['config_path']}/models"
-default['backup']['mount_options'] = []
+default['backup']['mount_options'] = ['soft', 'nosuid']
 
 default['backup']['user']         = 'root'
 default['backup']['group']        = 'root'
