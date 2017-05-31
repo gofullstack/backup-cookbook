@@ -28,6 +28,7 @@ suites:
     - recipe[rvm-rally::system_install]
     - recipe[backup]
   attributes:
+    dev_mode: true
     rally:
       location: 'bld'
     backup:

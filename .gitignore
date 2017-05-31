@@ -14,3 +14,6 @@ bin/*
 
 Berksfile.lock
 Gemfile.lock
+.DS_Store
+
+.kitchen/*

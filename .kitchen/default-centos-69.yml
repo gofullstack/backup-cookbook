@@ -1,7 +1,0 @@
----
-hostname: 127.0.0.1
-port: '2201'
-username: vagrant
-ssh_key: "/Users/yahal01/dev/rally/cookbooks/backup-cookbook/.kitchen/kitchen-vagrant/kitchen-backup-cookbook-default-centos-69/.vagrant/machines/default/virtualbox/private_key"
-last_action: setup
-last_error: Kitchen::ActionFailed
