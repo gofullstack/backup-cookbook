@@ -1,0 +1,36 @@
+{
+  "id": "ssh_locations",
+  "bld": {
+    "openssh": {
+      "server": {
+        "permit_root_login": "no",
+        "syslog_facility": "AUTHPRIV",
+        "gssapi_authentication": "yes",
+        "x11_forwarding": "yes",
+        "banner": "/etc/issue"
+      }
+    }
+  },
+  "qd": {
+    "openssh": {
+      "server": {
+        "permit_root_login": "no",
+        "syslog_facility": "AUTHPRIV",
+        "gssapi_authentication": "yes",
+        "x11_forwarding": "yes",
+        "banner": "/etc/issue"
+      }
+    }
+  },
+  "qs": {
+    "openssh": {
+      "server": {
+        "permit_root_login": "no",
+        "syslog_facility": "AUTHPRIV",
+        "gssapi_authentication": "yes",
+        "x11_forwarding": "yes",
+        "banner": "/etc/issue"
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "base_locations",
+  "bld": {
+    "resolver": {
+      "nameservers": [
+        "10.32.0.13",
+        "10.32.0.10"
+      ]
+    },
+    "splunk": {
+      "forwarder": {
+        "server": "splunkserver",
+        "group": "splunkgroup"
+      }
+    },
+    "nagios": {
+      "allowed_hosts": "10.32.0.34"
+    }
+  },
+  "qs": {
+    "resolver": {
+      "nameservers": [
+        "10.2.0.10"
+      ]
+    },
+    "splunk": {
+      "forwarder": {
+        "server": "splunkserver",
+        "group": "splunkgroup"
+      }
+    },
+    "nagios": {
+      "allowed_hosts": "10.2.0.34"
+    }
+  },
+  "qd": {
+    "resolver": {
+      "nameservers": [
+        "10.1.0.10"
+      ]
+    },
+    "splunk": {
+      "forwarder": {
+        "server": "splunkserver",
+        "group": "splunkgroup"
+      }
+    },
+    "nagios": {
+      "allowed_hosts": "10.1.0.34"
+    }
+  },
+  "an": {
+    "resolver": {
+      "nameservers": [
+        "10.5.0.0",
+        "10.5.0.11"
+      ]
+    },
+    "splunk": {
+      "forwarder": {
+        "server": "splunkserver",
+        "group": "splunkgroup"
+      }
+    },
+    "nagios": {
+      "allowed_hosts": "10.5.0.34"
+    }
+  },
+  "ai": {
+    "resolver": {
+      "nameservers": [
+        "10.4.0.10",
+        "10.4.0.11"
+      ]
+    },
+    "splunk": {
+      "forwarder": {
+        "server": "splunkserver",
+        "group": "splunkgroup"
+      }
+    },
+    "nagios": {
+      "allowed_hosts": "10.4.0.34"
+    }
+  },
+  "es": {
+    "resolver": {
+      "nameservers": [
+        "10.3.0.10",
+        "10.2.0.10"
+      ]
+    },
+    "splunk": {
+      "forwarder": {
+        "server": "splunkserver",
+        "group": "splunkgroup"
+      }
+    },
+    "nagios": {
+      "allowed_hosts": "10.3.0.34"
+    }
+  }
+}

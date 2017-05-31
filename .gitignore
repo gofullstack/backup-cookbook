@@ -12,3 +12,8 @@ Berksfile.lock
 bin/*
 .bundle/*
 
+Berksfile.lock
+Gemfile.lock
+.DS_Store
+
+.kitchen/*

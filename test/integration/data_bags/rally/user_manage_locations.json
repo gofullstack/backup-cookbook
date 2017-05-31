@@ -1,0 +1,15 @@
+{
+  "id": "user_manage_locations",
+  "bld": {
+    "ssh_public_key_location": "authorized_keys",
+    "create_person_accounts": false
+  },
+  "qd": {
+    "ssh_public_key_location": "etc_ssh",
+    "create_person_accounts": false
+  },
+  "qs": {
+    "ssh_public_key_location": "etc_ssh",
+    "create_person_accounts": false
+  }
+}

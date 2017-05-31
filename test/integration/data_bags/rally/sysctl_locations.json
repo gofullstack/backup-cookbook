@@ -1,0 +1,30 @@
+{
+  "id": "sysctl_locations",
+  "bld": {
+    "sysctl": {
+      "params": {
+        "kernel": {
+          "ranomize_va_space": "2"
+        }
+      }
+    }
+  },
+  "qd": {
+    "sysctl": {
+      "params": {
+        "kernel": {
+          "ranomize_va_space": "2"
+        }
+      }
+    }
+  },
+  "qs": {
+    "sysctl": {
+      "params": {
+        "kernel": {
+          "ranomize_va_space": "2"
+        }
+      }
+    }
+  }
+}

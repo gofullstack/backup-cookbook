@@ -1,9 +1,11 @@
-name             "backup"
-maintainer       "Cramer Development, Inc."
-maintainer_email "sysadmin@cramerdev.com"
-license          "Apache 2.0"
-description      "Installs/Configures backup"
+name             'backup'
+maintainer       'CA'
+maintainer_email 'operations-rally@ca.com'
+license          'MIT'
+description      'Installs/Configures backup'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "1.3.0"
-depends          "cron"
-depends          "gem_specific_install"
+version          IO.read(File.join(File.dirname(__FILE__), 'VERSION')) rescue '1.4.0'
+
+depends          'cron'
+depends          'gem_specific_install'
+depends          'rvm-rally'
