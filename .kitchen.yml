@@ -1,0 +1,35 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+  format: <%= ENV['CI'] ? 'junit' : 'cli' %>
+  <% if ENV['CI'] %>
+  output: "test-reports/%{platform}_%{suite}_inspec.xml"
+  <% end %>
+
+platforms:
+- name: centos-6.9
+  driver_config:
+    box: bento/centos-6.9
+    vm_hostname: bld-backuptest-01
+    require_chef_omnibus: true
+    customize:
+      cpus: 2
+      memory: 2048
+
+suites:
+- name: default
+  run_list:
+    - recipe[rvm-rally::system_install]
+    - recipe[backup]
+  attributes:
+    dev_mode: true
+    rally:
+      location: 'bld'
+    backup:
+      install_gem?: false

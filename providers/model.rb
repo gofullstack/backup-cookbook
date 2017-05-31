@@ -3,16 +3,17 @@ def whyrun_supported?
   true
 end
 
+use_inline_resources
 action :create do
   cron_options = new_resource.cron_options || {}
-  cron_output_redirect = if cron_options.key?(:output_log)
-                           "2>&1 >> #{cron_options[:output_log]}"
+  cron_output_redirect = if cron_options.key?('output_log')
+                           "2>&1 >> #{cron_options['output_log']}"
                          else
-                           "> /dev/null"
+                           '> /dev/null'
                          end
 
   cron_d cron_name do
-    command cron_options[:command] ||
+    command cron_options['command'] ||
       "backup perform --trigger #{new_resource.name} \
       --config-file #{node['backup']['config_path']}/config.rb \
       --log-path=#{node['backup']['log_path']} #{node['backup']['addl_flags']} \

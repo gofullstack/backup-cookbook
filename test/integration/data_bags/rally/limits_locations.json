@@ -1,0 +1,24 @@
+{
+  "id": "limits_locations",
+  "bld": {
+    "limits_conf": {
+      "system_nofile_soft": [{ "domain": "*", "type": "soft", "item": "nofile", "value": "65535"}],
+      "system_nofile_hard": [{ "domain": "*", "type": "hard", "item": "nofile", "value": "65535"}],
+      "system_core_file_size": [{ "domain": "*", "type": "soft", "item": "core", "value": "unlimited"}]
+    }
+  },
+  "qd": {
+    "limits_conf": {
+      "system_nofile_soft": [{ "domain": "*", "type": "soft", "item": "nofile", "value": "65535"}],
+      "system_nofile_hard": [{ "domain": "*", "type": "hard", "item": "nofile", "value": "65535"}],
+      "system_core_file_size": [{ "domain": "*", "type": "soft", "item": "core", "value": "unlimited"}]
+    }
+  },
+  "qs": {
+    "limits_conf": {
+      "system_nofile_soft": [{ "domain": "*", "type": "soft", "item": "nofile", "value": "65535"}],
+      "system_nofile_hard": [{ "domain": "*", "type": "hard", "item": "nofile", "value": "65535"}],
+      "system_core_file_size": [{ "domain": "*", "type": "soft", "item": "core", "value": "unlimited"}]
+    }
+  }
+}
