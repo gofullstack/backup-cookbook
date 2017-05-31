@@ -17,17 +17,19 @@
 # limitations under the License.
 #
 
-if node['backup']['version_from_git?']
-  include_recipe 'gem_specific_install'
-  gem_specific_install "backup" do
-    repository node['backup']['git_repo']
-    revision "master"
-    action :install
-  end
-else
-  gem_package 'backup' do
-    version node['backup']['version'] if node['backup']['version']
-    action :upgrade if node['backup']['upgrade?']
+if node['backup']['install_gem?']
+  if node['backup']['version_from_git?']
+    include_recipe 'gem_specific_install'
+    gem_specific_install "backup" do
+      repository node['backup']['git_repo']
+      revision "master"
+      action :install
+    end
+  else
+    gem_package 'backup' do
+      version node['backup']['version'] if node['backup']['version']
+      action :upgrade if node['backup']['upgrade?']
+    end
   end
 end
 
