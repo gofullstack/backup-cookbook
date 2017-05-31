@@ -12,3 +12,5 @@ Berksfile.lock
 bin/*
 .bundle/*
 
+Berksfile.lock
+Gemfile.lock
