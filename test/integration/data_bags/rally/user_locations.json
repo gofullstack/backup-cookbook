@@ -1,0 +1,21 @@
+{
+  "id": "user_locations",
+  "bld": {
+    "chef": {
+      "public_key": "ssh-dss FAKETESTKEY",
+      "public_key_path": "/home/chef/.ssh/authorized_keys"
+    }
+  },
+  "qd": {
+    "chef": {
+      "public_key": "ssh-dss FAKEPRODKEY",
+      "public_key_path": "/home/chef/.ssh/authorized_keys"
+    }
+  },
+  "qs": {
+    "chef": {
+      "public_key": "ssh-dss FAKEPRODKEY",
+      "public_key_path": "/home/chef/.ssh/authorized_keys"
+    }
+  }
+}

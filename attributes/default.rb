@@ -28,9 +28,29 @@ default['backup']['user']         = 'root'
 default['backup']['group']        = 'root'
 
 default['backup']['dependencies'] = []
-default['backup']['version'] = '4.0.2'
+default['backup']['version'] = '4.4.0'
 default['backup']['version_from_git?'] = false
+default['backup']['install_gem?'] = false
 default['backup']['git_repo'] = nil
 default['backup']['upgrade?'] = false
+default['backup']['rvm_ruby'] = '2.2.1'
 
 default['backup']['server']       = {}
+
+override['rvm']['users']['root'] = {
+  'rubies' => {
+    node['backup']['rvm_ruby'] => {
+      'default' => true
+    }
+  },
+ 'gems' => {
+    node['backup']['rvm_ruby'] => [
+      {'gem' => 'backup', 'version' => node['backup']['version'], 'action' => 'install'}
+    ]
+  },
+  'rvmrc' => {
+    'rvm_verify_downloads_flag' => 1,
+    'rvm_trust_rvmrcs_flag' => 1,
+    'rvm_autoupdate_flag' => 1
+  }
+}

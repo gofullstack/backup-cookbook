@@ -20,9 +20,9 @@
 if node['backup']['install_gem?']
   if node['backup']['version_from_git?']
     include_recipe 'gem_specific_install'
-    gem_specific_install "backup" do
+    gem_specific_install 'backup' do
       repository node['backup']['git_repo']
-      revision "master"
+      revision 'master'
       action :install
     end
   else
@@ -47,8 +47,8 @@ end
   end
 end
 
-template "Backup config file" do
-  path ::File.join( node['backup']['config_path'], "config.rb")
+template 'Backup config file' do
+  path ::File.join( node['backup']['config_path'], 'config.rb')
   source 'config.rb.erb'
   owner node['backup']['user']
   group node['backup']['group']

@@ -25,7 +25,10 @@ platforms:
 suites:
 - name: default
   run_list:
+    - recipe[rvm-rally::system_install]
     - recipe[backup]
   attributes:
     rally:
       location: 'bld'
+    backup:
+      install_gem?: false

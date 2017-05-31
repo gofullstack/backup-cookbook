@@ -3,9 +3,10 @@ def whyrun_supported?
   true
 end
 
+use_inline_resources
 action :enable do
   if node['backup']['server']['address'].nil?
-    Chef::Log.warn("The backup.server.address attribute is not defined. Not taking any action")
+    Chef::Log.warn('The backup.server.address attribute is not defined. Not taking any action')
   else
     directory new_resource.path do
       owner node['backup']['user']
